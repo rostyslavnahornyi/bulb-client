@@ -1,0 +1,25 @@
+@import '/src/styles/index.scss';
+
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 48px;
+  height: 48px;
+
+  img {
+    max-width: 40px;
+    max-height: 40px;
+    object-fit: contain;
+    animation: 0.9s infinite linear rotation;
+  }
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotateZ(0deg);
+  }
+  100% {
+    transform: rotateZ(359deg);
+  }
+}
