@@ -16,6 +16,13 @@
   },
   "rules": {
     "react/react-in-jsx-scope": "off",
-    "import/no-default-export": "error"
+    "import/no-default-export": "error",
+    "react/self-closing-comp": [
+      "error",
+      {
+        "component": false,
+        "html": false
+      }
+    ]
   }
 }

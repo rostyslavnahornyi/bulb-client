@@ -1,4 +1,4 @@
-import { Locales } from "../../context/app-context/app.types";
+import { Locales } from '../../context/app-context/app.types';
 
 const getInitialLanguage = () => {
   const preferredLanguage = globalThis.navigator?.languages[0]?.split('-')[0];
