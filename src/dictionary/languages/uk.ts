@@ -1,0 +1,3 @@
+const uk = {};
+
+export { uk };

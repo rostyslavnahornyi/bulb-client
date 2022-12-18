@@ -1,7 +1,6 @@
-import './App.css';
+import { FC } from 'react';
+import { AppContextProvider } from './context';
 
-function App() {
-  return <></>;
-}
+const App: FC = () => <AppContextProvider></AppContextProvider>;
 
 export { App };
