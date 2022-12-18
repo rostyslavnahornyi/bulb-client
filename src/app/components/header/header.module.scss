@@ -1,0 +1,96 @@
+@import '/src/styles/index.scss';
+@import '/src/styles/platform.scss';
+
+.wrapper {
+  position: sticky;
+  top: 0;
+  height: 44px;
+  width: 100%;
+  background: #282828;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.2);
+  padding: 0 24px;
+	z-index: 10;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.leftBlock {
+  display: flex;
+  align-items: center;
+  column-gap: 8px;
+
+  .burgerMenuButton {
+    min-width: 28px;
+    height: 28px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+    border-radius: 4px;
+    transition: 0.3s ease;
+
+    &:hover {
+      cursor: pointer;
+      background: #535353;
+    }
+
+		&.isOpened {
+			background: #535353;
+		}
+  }
+
+  .profileButton {
+    width: 28px;
+    height: 28px;
+    display: flex;
+    justify-items: center;
+    align-items: center;
+    background-color: transparent;
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    .profileIcon {
+      width: 20px;
+      height: 20px;
+    }
+  }
+}
+
+.rightBlock {
+  display: flex;
+  align-items: center;
+  column-gap: 8px;
+
+  .addTaskButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 28px;
+    height: 28px;
+    border-radius: 4px;
+    background-color: transparent;
+    transition: 0.3s ease;
+
+    &:hover {
+      background-color: #535353;
+      cursor: pointer;
+    }
+  }
+
+  .userSettingsButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 28px;
+    height: 28px;
+    background: transparent;
+
+    .userIcon:hover {
+      cursor: pointer;
+    }
+  }
+}

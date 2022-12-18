@@ -1,1 +1,1 @@
-export { ProtectedRoute } from './protected-route.component';
+export { ProtectedRoutes } from './protected-route.component';

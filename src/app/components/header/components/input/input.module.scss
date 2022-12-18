@@ -1,0 +1,24 @@
+@import '/src/styles/index.scss';
+@import '/src/styles/platform.scss';
+
+.wrapper {
+	display: flex;
+	align-items: center;
+  width: 220px;
+  height: 28px;
+  background-color: #363636;
+  border-radius: 4px;
+	padding: 6px;
+	column-gap: 8px;
+
+  .icon {
+    width: 20px;
+    height: 20px;
+  }
+
+  .input {
+    background-color: transparent;
+		outline: none;
+		color: #fff;
+  }
+}

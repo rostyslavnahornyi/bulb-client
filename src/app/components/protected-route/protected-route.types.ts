@@ -1,7 +1,7 @@
 import { ReactElement } from 'react';
 
-type ProtectedRouteProps = {
+type ProtectedRoutesProps = {
   element: ReactElement;
 };
 
-export type { ProtectedRouteProps };
+export type { ProtectedRoutesProps };
