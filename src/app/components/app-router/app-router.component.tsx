@@ -7,6 +7,7 @@ import { ROUTES } from '../../utils';
 import styles from './app-router.module.scss';
 import { useAuth } from '../../hooks';
 import classNames from 'classnames';
+import { EmptyPage } from './components';
 
 const LoginPage = lazy(() => import('../../pages/login-page'));
 const RegisterPage = lazy(() => import('../../pages/register-page'));
@@ -60,7 +61,7 @@ const AppRouter: FC = () => {
         />
 
         <Route path="/" element={<Navigate to={ROUTES.LOGIN} />} />
-        <Route path="*" element={<Preloader />} />
+        <Route path="*" element={<EmptyPage />} />
       </Routes>
     </BrowserRouter>
   );
