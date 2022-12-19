@@ -1,0 +1,86 @@
+@import '/src/styles/index.scss';
+@import '/src/styles/platform.scss';
+
+.wrapper {
+  position: absolute;
+
+  display: flex;
+  flex-direction: column;
+  width: 280px;
+  background: #1f1f1f;
+  border: 1px solid #929292;
+  border-radius: 8px;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  column-gap: 8px;
+  padding: 14px;
+
+  .avatar {
+    width: 45px;
+    height: 45px;
+  }
+
+  .userInfo {
+    display: flex;
+    flex-direction: column;
+    color: #fff;
+    text-align: left;
+
+    .firstname {
+      font-size: 16px;
+      font-weight: 900;
+    }
+
+    .email {
+      color: #999999;
+    }
+  }
+}
+
+.controlButtons {
+  display: flex;
+  flex-direction: column;
+  padding: 8px;
+  row-gap: 8px;
+  color: #fff;
+  border-top: 1px solid #393939;
+  border-bottom: 1px solid #393939;
+
+  display: flex;
+  flex-direction: column;
+
+  .row {
+    display: flex;
+    align-items: center;
+    column-gap: 12px;
+    padding: 6px 6px;
+    border-radius: 4px;
+    transition: 0.4s ease;
+
+    &:hover {
+      background-color: #363636;
+      cursor: pointer;
+    }
+
+    img {
+      width: 20px;
+      height: 20px;
+    }
+  }
+}
+
+.versionFooter {
+  display: flex;
+  align-items: center;
+  padding: 12px;
+  color: #6c6c6c;
+  text-align: center;
+  column-gap: 12px;
+
+  &:hover {
+    cursor: pointer;
+  }
+}

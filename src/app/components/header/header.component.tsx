@@ -1,14 +1,18 @@
 import { FC, useState } from 'react';
-import ProfileIcon from '../../../assets/icons/profile.svg';
+
 import BurgerMenuIcon from '../../../assets/icons/burger-menu.svg';
-import styles from './header.module.scss';
+import { HeaderProps } from './header.types';
+import PlusIcon from '../../../assets/icons/plus.svg';
+import ProfileIcon from '../../../assets/icons/profile.svg';
 import { Input as SearchInput } from './components';
 import UserIcon from '../../../assets/icons/user.svg';
-import PlusIcon from '../../../assets/icons/plus.svg';
 import classNames from 'classnames';
-import { HeaderProps } from './header.types';
+import styles from './header.module.scss';
+import { ProfileMenu } from '../profile-menu';
 
 const Header: FC<HeaderProps> = ({ leftBarIsOpened, setLeftBarIsOpened }) => {
+  const [profileMenuIsOpened, setProfileMenuIsOpened] = useState<boolean>(false);
+
   const searchInputChangeHandler = (value: string) => {
     // TODO
     value;
@@ -35,8 +39,24 @@ const Header: FC<HeaderProps> = ({ leftBarIsOpened, setLeftBarIsOpened }) => {
         <button className={styles.addTaskButton}>
           <img src={PlusIcon} alt="add-task" className={styles.plusIcon} />
         </button>
-        <button className={styles.userSettingsButton}>
+        {/* 
+          TODO: if user found ? userSrc : userIcon
+         */}
+        <button
+          className={styles.userSettingsButton}
+          onClick={() => setProfileMenuIsOpened(!profileMenuIsOpened)}>
           <img src={UserIcon} alt="user" className={styles.userIcon} />
+          {/* 
+            TODO: insert data from axios. Added avatarSrc to props
+           */}
+          {profileMenuIsOpened && (
+            <ProfileMenu
+              email="rostyslav.nahornyi@nure.ua"
+              firstName="Rostyslav"
+              style={{ top: '38px', right: '0px' }}
+              setIsOpened={setProfileMenuIsOpened}
+            />
+          )}
         </button>
       </div>
     </header>
