@@ -1,8 +1,7 @@
-import { ChangeEvent, FC, useEffect, useRef, useState } from 'react';
+import { FC, useEffect, useRef, useState } from 'react';
 
-import Icon from '@mdi/react';
+import MagnifyIcon from '../../../../../assets/icons/magnify.svg';
 import classNames from 'classnames';
-import { mdiMagnify } from '@mdi/js';
 import styles from './input.module.scss';
 import { InputProps } from './input.types';
 
@@ -24,7 +23,7 @@ const Input: FC<InputProps> = ({ onChange, placeholder, type, className, ...inpu
 
   return (
     <div className={styles.wrapper} onClick={clickContainerHandler}>
-      <Icon path={mdiMagnify} className={styles.icon} />
+      <img src={MagnifyIcon} className={styles.icon} />
       <input
         ref={ref}
         value={value}

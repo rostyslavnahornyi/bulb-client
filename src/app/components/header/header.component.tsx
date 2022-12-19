@@ -4,7 +4,7 @@ import BurgerMenuIcon from '../../../assets/icons/burger-menu.svg';
 import { HeaderProps } from './header.types';
 import PlusIcon from '../../../assets/icons/plus.svg';
 import ProfileIcon from '../../../assets/icons/profile.svg';
-import { Input as SearchInput } from './components';
+import { Input } from './components';
 import UserIcon from '../../../assets/icons/user.svg';
 import classNames from 'classnames';
 import styles from './header.module.scss';
@@ -29,7 +29,7 @@ const Header: FC<HeaderProps> = ({ leftBarIsOpened, setLeftBarIsOpened }) => {
         <button className={styles.profileButton}>
           <img src={ProfileIcon} className={styles.profileIcon} alt="profile-icon" />
         </button>
-        <SearchInput onChange={searchInputChangeHandler} placeholder={'Search'} />
+        <Input onChange={searchInputChangeHandler} placeholder={'Search'} />
       </div>
 
       <div className={styles.rightBlock}>

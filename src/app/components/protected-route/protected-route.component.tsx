@@ -8,9 +8,9 @@ import { LeftBar } from '../left-bar';
 
 const ProtectedRoutes: FC<ProtectedRoutesProps> = ({ element }) => {
   const isAuth = useAuth();
-  
+
   const [leftBarIsOpened, setLeftBarIsOpened] = useState<boolean>(false);
-  
+
   return isAuth ? (
     <Fragment>
       <Header leftBarIsOpened={leftBarIsOpened} setLeftBarIsOpened={setLeftBarIsOpened} />

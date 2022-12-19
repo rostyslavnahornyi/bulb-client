@@ -1,4 +1,4 @@
-import { Amplify } from 'aws-amplify';
+import { I18n } from 'aws-amplify';
 import { createContext, FC, PropsWithChildren, useContext, useReducer } from 'react';
 import { dictionary } from '../../dictionary';
 import { initialState, reducer } from './app.state';
@@ -10,7 +10,7 @@ const useAppContext = () => useContext(AppContext);
 
 const AppContextProvider: FC<PropsWithChildren> = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
-  Amplify.I18n.putVocabularies(dictionary);
+  I18n.putVocabularies(dictionary);
 
   return <AppContext.Provider value={{ ...state, dispatch }}>{children}</AppContext.Provider>;
 };
