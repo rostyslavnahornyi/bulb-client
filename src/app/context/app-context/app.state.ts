@@ -10,7 +10,7 @@ const initialState: State = {
 const reducer = (state: State, action: Action): State => {
   switch (action.type) {
     case 'SET_AUTH': {
-      return { ...state };
+      return { ...state, auth: action.payload };
     }
 
     case 'LOGOUT': {

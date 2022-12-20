@@ -12,6 +12,8 @@ import { useAuth } from '../../hooks';
 const LoginPage = lazy(() => import('../../pages/login-page'));
 const RegisterPage = lazy(() => import('../../pages/register-page'));
 const ProfilePage = lazy(() => import('../../pages/profile-page'));
+const MarketplacePage = lazy(() => import('../../pages/marketplace-page'));
+const TasksPage = lazy(() => import('../../pages/tasks-page'));
 
 const AppRouter: FC = () => {
   const isAuth = useAuth();
@@ -20,13 +22,13 @@ const AppRouter: FC = () => {
     <BrowserRouter>
       <Routes>
         {/* 
-          TODO: Change Navigate to marketplace when isAuth.
+          Login and Register.
          */}
         <Route
           path={ROUTES.LOGIN}
           element={
             isAuth ? (
-              <Navigate to={ROUTES.PROFILE} />
+              <Navigate to={ROUTES.MARKETPLACE} />
             ) : (
               <Suspense fallback={<Preloader className={styles.center} />}>
                 <LoginPage />
@@ -38,7 +40,7 @@ const AppRouter: FC = () => {
           path={ROUTES.REGISTER}
           element={
             isAuth ? (
-              <Navigate to={ROUTES.PROFILE} />
+              <Navigate to={ROUTES.MARKETPLACE} />
             ) : (
               <Suspense fallback={<Preloader className={styles.center} />}>
                 <RegisterPage />
@@ -47,19 +49,53 @@ const AppRouter: FC = () => {
           }
         />
 
+        {/*
+          Protected routes.
+         */}
+
         <Route
           path={ROUTES.PROFILE}
           element={
             <ProtectedRoutes
               element={
-                <Suspense fallback={<Preloader className={classNames(styles.center, styles.darkBg)} />}>
+                <Suspense
+                  fallback={<Preloader className={classNames(styles.center, styles.darkBg)} />}>
                   <ProfilePage />
                 </Suspense>
               }
             />
           }
         />
+        <Route
+          path={ROUTES.MARKETPLACE}
+          element={
+            <ProtectedRoutes
+              element={
+                <Suspense
+                  fallback={<Preloader className={classNames(styles.center, styles.darkBg)} />}>
+                  <MarketplacePage />
+                </Suspense>
+              }
+            />
+          }
+        />
+        <Route
+          path={ROUTES.TASKS}
+          element={
+            <ProtectedRoutes
+              element={
+                <Suspense
+                  fallback={<Preloader className={classNames(styles.center, styles.darkBg)} />}>
+                  <TasksPage />
+                </Suspense>
+              }
+            />
+          }
+        />
 
+        {/* 
+          Auxiliary routes.
+         */}
         <Route path="/" element={<Navigate to={ROUTES.LOGIN} />} />
         <Route path="*" element={<EmptyPage />} />
       </Routes>

@@ -7,6 +7,8 @@ import SettingsIcon from '../../../assets/icons/settings.svg';
 import LogoutIcon from '../../../assets/icons/logout.svg';
 import DotIcon from '../../../assets/icons/dot.svg';
 import { useClickOutside } from '../../hooks';
+import { useNavigate } from 'react-router-dom';
+import { ROUTES } from '../../utils';
 
 const ProfileMenu: FC<ProfileMenuProps> = ({
   avatarSrc,
@@ -17,6 +19,7 @@ const ProfileMenu: FC<ProfileMenuProps> = ({
   style,
 }) => {
   const ref = useRef<HTMLDivElement>(null);
+  const navigate = useNavigate();
 
   useClickOutside(ref, () => setIsOpened(false));
 
@@ -29,7 +32,9 @@ const ProfileMenu: FC<ProfileMenuProps> = ({
       <div className={styles.header}>
         <img src={avatarSrc ?? AvatarIcon} className={styles.avatar} alt={'avatar'} />
         <div className={styles.userInfo}>
-          <span className={styles.firstname}>{firstName}</span>
+          <span className={styles.firstname} onClick={() => navigate(ROUTES.PROFILE)}>
+            {firstName}
+          </span>
           <span className={styles.email}>{email}</span>
         </div>
       </div>

@@ -17,12 +17,10 @@ const links = [
 
 const PageLink: FC<PageLinkProps> = ({ icon, label, route, isActive }) => {
   return (
-    <div className={classNames(styles.pageLink, isActive && styles.isActive)}>
+    <Link to={route} className={classNames(styles.pageLink, isActive && styles.isActive)}>
       <img src={icon} className={styles.linkIcon} alt="navbar-link-icon" />
-      <Link to={route} className={styles.label}>
-        {label}
-      </Link>
-    </div>
+      <span className={styles.label}>{label}</span>
+    </Link>
   );
 };
 

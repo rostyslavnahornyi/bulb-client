@@ -32,6 +32,10 @@
     .firstname {
       font-size: 16px;
       font-weight: 900;
+
+      &:hover {
+        cursor: pointer;
+      }
     }
 
     .email {
