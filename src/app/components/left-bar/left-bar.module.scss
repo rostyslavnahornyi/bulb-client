@@ -9,6 +9,7 @@
   height: calc(100vh - 44px);
   background-color: #242424;
   transition: 0.3s ease;
+  z-index: 5;
 
   &.isOpened {
     left: 0;

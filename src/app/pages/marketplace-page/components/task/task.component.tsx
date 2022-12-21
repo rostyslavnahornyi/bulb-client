@@ -9,10 +9,6 @@ import LocationIcon from '../../../../../assets/icons/location.svg';
 import ParticipantIcon from '../../../../../assets/icons/participant.svg';
 import TimeIcon from '../../../../../assets/icons/time.svg';
 
-/**
- * type: "today" | "tomorrow" | "after"
- *
- */
 const Task: FC<TaskProps> = ({
   id,
   price,
@@ -35,7 +31,7 @@ const Task: FC<TaskProps> = ({
     <div className={styles.wrapper}>
       <div className={styles.leftBorder}></div>
 
-      <div className={styles.right}>
+      <div className={styles.content}>
         <div className={styles.main}>
           <div className={styles.header}>
             <span className={styles.title} onClick={() => navigate(`/tasks/${id}`)}>
@@ -43,7 +39,7 @@ const Task: FC<TaskProps> = ({
             </span>
             <div className={styles.price}>{price}$</div>
           </div>
-          <div className={styles.tag}>{tag}</div>
+          <div className={styles.tag}>#{tag}</div>
           <div className={styles.info}>
             <div className={styles.participants}>
               <img src={ParticipantIcon} className={styles.icon} />
@@ -51,7 +47,9 @@ const Task: FC<TaskProps> = ({
             </div>
             <div className={styles.date}>
               <img src={TimeIcon} className={styles.icon} />
-              <span className={styles.span}>{date}</span>
+              <span className={styles.span}>
+                {new Date(date ?? new Date()).toLocaleDateString()}
+              </span>
             </div>
           </div>
         </div>
@@ -107,7 +105,7 @@ const Task: FC<TaskProps> = ({
 
           <div className={styles.rightAuthor}>
             <div className={styles.creationDate}>
-              <span>{creationDate}</span>
+              <span>{new Date(creationDate).toLocaleDateString()}</span>
               <img src={CalendarIcon} className={styles.icon} />
             </div>
             <span className={styles.author}>{author}</span>

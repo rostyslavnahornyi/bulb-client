@@ -1,9 +1,64 @@
 import { FC, useEffect, useState } from 'react';
 
-import DownArrowIcon from '../../../assets/icons/down-arrow.svg';
+import { Preloader } from '../../components';
+import { Select } from './components/select';
 import { Task } from './components';
 import { TaskProps } from './components/task/task.types';
-import styles from './profile-page.module.scss';
+import styles from './marketplace-page.module.scss';
+
+const sortOptions = [
+  {
+    label: 'Date',
+    value: 'date',
+  },
+  {
+    label: 'Participants in desc',
+    value: 'participants_desc',
+  },
+  {
+    label: 'Participants in asc',
+    value: 'pay_desc',
+  },
+  {
+    label: 'Pay in desc',
+    value: 'participants_asc',
+  },
+  {
+    label: 'Pay asc',
+    value: 'pay_asc',
+  },
+];
+
+const typeOptions = [
+  {
+    label: 'All',
+    value: 'all',
+  },
+  {
+    label: 'One time',
+    value: 'one_time',
+  },
+  {
+    label: 'Long term',
+    value: 'long_term',
+  },
+  {
+    label: 'Location only',
+    value: 'location_only',
+  },
+  {
+    label: 'Locations',
+    value: 'locations',
+  },
+  {
+    label: 'Time only',
+    value: 'time_only',
+  },
+  {
+    label: 'Times',
+    value: 'times',
+  },
+];
 
 export const mockedTasks = [
   {
@@ -153,8 +208,11 @@ export const mockedTasks = [
 ];
 
 const MarketplacePage: FC = () => {
-  const [tasks, setTasks] = useState<TaskProps[]>();
-  const [keyword, setKeyword] = useState('');
+  const [tasks, setTasks] = useState<TaskProps[]>([]);
+  const [filter, setFilter] = useState<{ sort: string; type: string }>({
+    sort: sortOptions[0].value,
+    type: typeOptions[0].value,
+  });
 
   useEffect(() => {
     setTimeout(() => {
@@ -165,42 +223,30 @@ const MarketplacePage: FC = () => {
   return (
     <div className={styles.wrapper}>
       <div className={styles.controlButtons}>
-        <div className={styles.select}>
-          <span>Sort by:</span>
-          <select defaultValue={'date'} className={styles.select}>
-            <option value="date">Date</option>
-            <option value="participants_desc">Participants in desc</option>
-            <option value="participants_asc">Participants in asc</option>
-            <option value="pay_desc">Pay in desc</option>
-            <option value="pay_asc">Pay asc</option>
-          </select>
-          <img src={DownArrowIcon} className={styles.icon} />
-        </div>
+        <Select
+          onSelect={sortOption => setFilter({ ...filter, sort: sortOption })}
+          label="Sort by:"
+          defaultValue={sortOptions[0].value}
+          options={sortOptions}
+        />
 
-        <div className={styles.select}>
-          <span>Type:</span>
-          <select defaultValue={'all'} className={styles.select}>
-            <option value="all">All</option>
-            <option value="one_time">One time</option>
-            <option value="long_term">Long term</option>
-            <option value="location_only">Location only</option>
-            <option value="locations">Locations</option>
-            <option value="time_only">Time only</option>
-            <option value="times">Times</option>
-          </select>
-          <img src={DownArrowIcon} className={styles.icon} />
-        </div>
+        <Select
+          onSelect={typeOption => setFilter({ ...filter, type: typeOption })}
+          label="Type:"
+          defaultValue={typeOptions[0].value}
+          options={typeOptions}
+        />
 
-        <input
+        {/* <input
           className={styles.inputKeyWordSearch}
           placeholder="Enter your key word"
           value={keyword}
           onChange={e => setKeyword(e.target.value)}
-        />
+        /> */}
       </div>
 
       <div className={styles.tasksWrapper}>
-        {/* {!tasks.length && <FadeLoader className={styles.loader} color={'#fff'} />} */}
+        {tasks && !tasks.length && <Preloader className={styles.loader} />}
         {tasks && tasks.map((task, index) => <Task key={index} {...task} />)}
       </div>
     </div>
