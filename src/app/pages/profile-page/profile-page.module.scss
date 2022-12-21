@@ -1,2 +1,19 @@
 @import '/src/styles/index.scss';
 @import '/src/styles/platform.scss';
+
+.wrapper {
+	display: flex;
+	justify-content: space-between;
+	margin: 36px 24px;
+	
+	.content {
+		display: flex;
+		flex-direction: column;
+		row-gap: 32px;
+
+		.main {
+			display: flex;
+			justify-content: space-between;
+		}
+	}
+}

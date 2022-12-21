@@ -1,0 +1,73 @@
+@import '/src/styles/index.scss';
+@import '/src/styles/platform.scss';
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  max-width: 250px;
+  row-gap: 12px;
+
+  .avatar,
+  .avatar img {
+    width: 250px;
+    height: 250px;
+  }
+
+  .description {
+    display: flex;
+    flex-direction: column;
+
+    :first-child {
+      font-weight: 800;
+      font-size: 20px;
+      letter-spacing: 2px;
+    }
+
+    :last-child {
+      font-weight: 300;
+    }
+  }
+
+  .buttonControl {
+    width: 100%;
+    margin-bottom: 64px;
+  }
+
+  .stats {
+    display: flex;
+    flex-direction: column;
+    row-gap: 12px;
+
+    .data {
+      display: flex;
+      justify-content: space-between;
+
+      .col {
+        display: flex;
+        flex-direction: column;
+
+        .value {
+          font-size: 20px;
+          font-weight: 900;
+        }
+
+        .label {
+          font-weight: 100;
+        }
+      }
+    }
+  }
+
+  .rating {
+    display: flex;
+    align-items: center;
+    column-gap: 12px;
+    font-size: 24px;
+    font-weight: 900;
+
+    .stars {
+      display: flex;
+      align-items: center;
+    }
+  }
+}

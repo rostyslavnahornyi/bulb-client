@@ -30,12 +30,9 @@ const PageLink: FC<PageLinkProps> = ({ icon, label, route, isActive, onClick }) 
 
 const LeftBar: FC<LeftBarProps> = ({ isOpened = false, setIsOpened }) => {
   const path = window?.location?.pathname;
-  const ref = useRef<HTMLDivElement>(null);
-
-  useClickOutside(ref, () => setIsOpened(false));
 
   return (
-    <div className={classNames(styles.wrapper, isOpened && styles.isOpened)} ref={ref}>
+    <div className={classNames(styles.wrapper, isOpened && styles.isOpened)}>
       <div className={styles.content}>
         {links.map((linkProps, index) => (
           <PageLink

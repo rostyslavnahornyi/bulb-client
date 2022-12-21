@@ -1,0 +1,57 @@
+@import '/src/styles/index.scss';
+@import '/src/styles/platform.scss';
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  max-width: 350px;
+  row-gap: 40px;
+
+  .row {
+    display: flex;
+    flex-direction: column;
+    row-gap: 12px;
+
+    h3 {
+      font-size: 20px;
+    }
+
+    .content {
+      font-size: 12px;
+    }
+
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      column-gap: 8px;
+
+      .skill {
+        border-radius: 12px;
+        font-size: 12px;
+        padding: 4px 8px;
+        transition: 0.3s;
+
+        &:hover {
+          cursor: pointer;
+          background-color: transparent !important;
+        }
+      }
+    }
+
+    .socials {
+      display: flex;
+      column-gap: 8px;
+
+      .social {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        width: 45px;
+        height: 45px;
+        background-color: #d9d9d9;
+        border-radius: 100%;
+      }
+    }
+  }
+}
