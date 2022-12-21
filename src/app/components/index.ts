@@ -6,3 +6,4 @@ export { LeftBar } from './left-bar';
 export { ProfileMenu } from './profile-menu';
 export { Review } from './review';
 export { Button } from './button';
+export { Input } from './input';

@@ -1,0 +1,69 @@
+@import '/src/styles/index.scss';
+@import '/src/styles/platform.scss';
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 324px;
+  row-gap: 6px;
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+		
+    .label {
+			display: flex;
+			column-gap: 8px;
+    }
+
+    .icon {
+      max-width: 20px;
+      max-height: 20px;
+    }
+    .icon > img {
+      width: 20px;
+      height: 20px;
+    }
+  }
+
+  input {
+    border: unset;
+    outline: unset;
+    background-color: transparent;
+  }
+}
+
+.light {
+  .header {
+    .value {
+      color: rgba($color: #000000, $alpha: 0.5);
+    }
+  }
+
+  input {
+    color: rgba($color: #000000, $alpha: 0.5);
+    border: 1px solid #dadada;
+    border-radius: 8px;
+    padding: 12px;
+  }
+}
+
+.dark {
+  .header {
+    .value {
+      color: #fff;
+    }
+
+    .tailingLabel {
+      color: #ff7066;
+    }
+  }
+
+  input {
+    color: #fff;
+    border: 1px solid #686868;
+    border-radius: 4px;
+    padding: 4px 8px;
+  }
+}
