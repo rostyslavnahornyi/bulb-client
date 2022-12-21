@@ -14,7 +14,7 @@ const ProtectedRoutes: FC<ProtectedRoutesProps> = ({ element }) => {
   return isAuth ? (
     <Fragment>
       <Header leftBarIsOpened={leftBarIsOpened} setLeftBarIsOpened={setLeftBarIsOpened} />
-      <LeftBar isOpened={leftBarIsOpened} />
+      <LeftBar isOpened={leftBarIsOpened} setIsOpened={setLeftBarIsOpened} />
       {element}
     </Fragment>
   ) : (

@@ -7,7 +7,6 @@ import { useAppContext } from '../../context';
 const useAuth = () => {
   const { auth } = useAppContext();
 
-  // return !!auth;
   return true;
 };
 
