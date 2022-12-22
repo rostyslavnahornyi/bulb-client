@@ -1,0 +1,32 @@
+.wrapper {
+	display: flex;
+	justify-content: center;
+	
+	.content {
+		display: flex;
+		flex-direction: column;
+		width: 380px;	
+	}
+
+	.optional {
+		display: flex;
+		justify-content: space-between;
+		margin: 10px 0 30px;
+
+		p {
+			font-size: 14px;
+			font-weight: 500;
+			line-height: 18px;
+			color: #8064c9;
+			cursor: pointer;
+		}
+	}
+}
+
+.passwordInput {
+	margin-bottom: 30px;
+}
+
+.emailInput {
+	margin-bottom: 10px;
+}

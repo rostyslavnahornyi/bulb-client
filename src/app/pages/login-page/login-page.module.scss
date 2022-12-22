@@ -1,2 +1,83 @@
 @import '/src/styles/index.scss';
 
+body {
+	background-color: #fff;
+	color: #000;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  margin-top: 12px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  margin-bottom: 50px;
+  margin-left: 45px;
+
+  img {
+    width: 25px;
+    height: 25px;
+
+    margin-right: 8px;
+  }
+}
+
+.form {
+  display: flex;
+  justify-content: center;
+
+  h2 {
+    font-size: 42px;
+    font-weight: 500;
+    line-height: 58px;
+    margin-bottom: 5px;
+  }
+
+  h3 {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 16px;
+    letter-spacing: 0em;
+    color: rgba($color: #000, $alpha: 0.5);
+    margin-bottom: 32px;
+  }
+
+  .emailInput,
+  .passwordInput {
+    margin-bottom: 20px;
+  }
+
+  .optional {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 42px;
+
+    p {
+      font-size: 14px;
+      font-weight: 500;
+      line-height: 18px;
+      color: #8064c9;
+      cursor: pointer;
+    }
+  }
+}
+
+.dontHaveAccount {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 131.5%;
+
+  color: rgba(0, 0, 0, 0.51);
+
+  a {
+    color: #8064c9;
+  }
+}

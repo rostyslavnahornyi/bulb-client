@@ -1,13 +1,12 @@
-import Icon from '@mdi/react';
 import React, { FC } from 'react';
-import styles from './task.module.scss';
-import classNames from 'classnames';
-import { useNavigate } from 'react-router-dom';
-import { TaskProps } from './task.types';
+
 import CalendarIcon from '../../../../../assets/icons/calendar.svg';
 import LocationIcon from '../../../../../assets/icons/location.svg';
 import ParticipantIcon from '../../../../../assets/icons/participant.svg';
+import { TaskProps } from './task.types';
 import TimeIcon from '../../../../../assets/icons/time.svg';
+import styles from './task.module.scss';
+import { useNavigate } from 'react-router-dom';
 
 const Task: FC<TaskProps> = ({
   id,

@@ -9,6 +9,7 @@ import DotIcon from '../../../assets/icons/dot.svg';
 import { useClickOutside } from '../../hooks';
 import { useNavigate } from 'react-router-dom';
 import { ROUTES } from '../../utils';
+import { useAppContext } from '../../context';
 
 const ProfileMenu: FC<ProfileMenuProps> = ({
   avatarSrc,
@@ -20,6 +21,7 @@ const ProfileMenu: FC<ProfileMenuProps> = ({
 }) => {
   const ref = useRef<HTMLDivElement>(null);
   const navigate = useNavigate();
+  const { dispatch } = useAppContext();
 
   useClickOutside(ref, () => setIsOpened(false));
 
@@ -44,7 +46,7 @@ const ProfileMenu: FC<ProfileMenuProps> = ({
           <img src={SettingsIcon} alt="settings-icon" />
           <span>Settings</span>
         </div>
-        <div className={styles.row}>
+        <div className={styles.row} onClick={() => dispatch({ type: 'LOGOUT' })}>
           <img src={LogoutIcon} alt="logout-icon" />
           <span>Logout</span>
         </div>

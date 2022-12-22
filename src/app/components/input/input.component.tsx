@@ -12,9 +12,11 @@ const Input: FC<InputProps> = ({
   iconLabel,
   variant = 'dark',
   placeholder,
+  value,
   type,
+  style
 }) => (
-  <div className={classNames(styles.wrapper, styles[variant])}>
+  <div className={classNames(styles.wrapper, styles[variant])} style={style}>
     <div className={styles.header}>
       <div className={styles.label}>
         <div className={styles.icon}>{iconLabel}</div>
@@ -22,7 +24,12 @@ const Input: FC<InputProps> = ({
       </div>
       <span className={styles.tailingLabel}>{tailingLabel}</span>
     </div>
-    <input type={type} placeholder={placeholder} onChange={event => onChange(event.target.value)} />
+    <input
+      type={type}
+      placeholder={placeholder}
+      value={value}
+      onChange={event => onChange(event.target.value)}
+    />
   </div>
 );
 

@@ -1,0 +1,18 @@
+.wrapper {
+	display: flex;
+	justify-content: center;
+
+	.content {
+		display: flex;
+		flex-direction: column;
+		width: 380px;
+	}
+
+	.firstName {
+		margin-bottom: 20px;
+	}
+
+	.lastName {
+		margin-bottom: 20px;
+	}
+}

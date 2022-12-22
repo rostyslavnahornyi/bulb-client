@@ -49,4 +49,4 @@ enum Locales {
 }
 
 export { Roles, Locales };
-export type { AppContextProps, State, Action };
+export type { AppContextProps, State, Action, AuthProps };

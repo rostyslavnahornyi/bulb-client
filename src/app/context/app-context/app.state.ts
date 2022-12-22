@@ -10,11 +10,13 @@ const initialState: State = {
 const reducer = (state: State, action: Action): State => {
   switch (action.type) {
     case 'SET_AUTH': {
-      return { ...state, auth: action.payload };
+      Cache.setItem('auth', action.payload);
+      return { auth: action.payload };
     }
 
     case 'LOGOUT': {
-      return { ...state };
+      Cache.removeItem('auth')
+      return {};
     }
 
     case 'SET_LANG': {

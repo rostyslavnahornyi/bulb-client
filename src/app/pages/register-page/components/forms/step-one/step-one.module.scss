@@ -1,0 +1,81 @@
+h2 {
+	color: #000;
+}
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .customer,
+  .client {
+    width: 608px;
+    height: 80px;
+    border: 3px solid #cbcbcb;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    padding: 18px 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: 0.2s ease;
+
+    .profile {
+      display: flex;
+
+      img {
+        width: 45px;
+        height: 45px;
+        margin-right: 30px;
+      }
+
+      .label {
+        display: flex;
+        flex-direction: column;
+        .name {
+          font-size: 16px;
+					color: #000;
+        }
+
+        .desc {
+          font-size: 12px;
+          color: #808080;
+        }
+      }
+    }
+
+    .circle {
+      width: 20px;
+      height: 20px;
+      border-radius: 10px;
+      border: 3px solid #cbcbcb;
+      align-self: flex-start;
+
+      &:hover {
+        border: 3px solid #8956ca;
+      }
+    }
+
+    &:hover {
+      border: 3px solid #8956ca;
+      cursor: pointer;
+    }
+  }
+
+  .active {
+    border: 3px solid #8956ca;
+
+    .circle {
+      border: 3px solid #8956ca;
+    }
+  }
+
+  .text {
+    font-size: 14px;
+    color: #a3a3a3;
+
+    span {
+      color: #8956ca;
+      cursor: pointer;
+    }
+  }
+}
