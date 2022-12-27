@@ -124,14 +124,14 @@ const AppRouter: FC = () => {
           }
         />
 
-<Route
-          path={ROUTES.CREATE_TASK}
+        <Route
+          path={ROUTES.EDIT_TASK}
           element={
             <ProtectedRoutes
               element={
                 <Suspense
                   fallback={<Preloader className={classNames(styles.center, styles.darkBg)} />}>
-                  <CreateTaskPage />
+                  <EditTaskPage />
                 </Suspense>
               }
             />

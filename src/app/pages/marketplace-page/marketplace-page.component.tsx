@@ -5,6 +5,9 @@ import { Select } from './components/select';
 import { Task } from './components';
 import { TaskProps } from './components/task/task.types';
 import styles from './marketplace-page.module.scss';
+import axios from 'axios';
+import { useAppContext } from '../../context';
+import { BACKEND_URL } from '../../utils';
 
 const sortOptions = [
   {
@@ -206,17 +209,33 @@ export const mockedTasks = [
   },
 ];
 
+interface Task {
+  creatorId: string;
+  dateClosed: string;
+  dateCreated: string;
+  dateUpdated: string;
+  endDate: string;
+  id: string;
+  name: string;
+  price: number;
+  taskStatus: number;
+}
+
+export type { Task };
+
 const MarketplacePage: FC = () => {
-  const [tasks, setTasks] = useState<TaskProps[]>([]);
+  const [tasks, setTasks] = useState<Task[]>([]);
   const [filter, setFilter] = useState<{ sort: string; type: string }>({
     sort: sortOptions[0].value,
     type: typeOptions[0].value,
   });
 
+  const { auth } = useAppContext();
+
   useEffect(() => {
-    setTimeout(() => {
-      setTasks(mockedTasks);
-    }, 1500);
+    axios
+      .get(`${BACKEND_URL}/api/task/alltasksbyuser?userid=${auth?.userId}`)
+      .then(e => setTasks(e.data));
   }, []);
 
   return (

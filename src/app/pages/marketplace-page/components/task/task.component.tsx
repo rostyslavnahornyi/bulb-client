@@ -3,26 +3,24 @@ import React, { FC } from 'react';
 import CalendarIcon from '../../../../../assets/icons/calendar.svg';
 import LocationIcon from '../../../../../assets/icons/location.svg';
 import ParticipantIcon from '../../../../../assets/icons/participant.svg';
-import { TaskProps } from './task.types';
+
 import TimeIcon from '../../../../../assets/icons/time.svg';
 import styles from './task.module.scss';
 import { useNavigate } from 'react-router-dom';
+import { Task as TaskProps } from '../../marketplace-page.component';
+
+const tags = ['Common', 'IT', 'Marketing', 'Designer', 'Cleaning'];
 
 const Task: FC<TaskProps> = ({
   id,
   price,
-  title,
-  participants,
-  tag,
-  creationDate,
-  author,
-  date,
-  location,
-  locationEnd,
-  locationStart,
-  time,
-  timeEnd,
-  timeStart,
+  creatorId,
+  dateClosed,
+  dateCreated,
+  dateUpdated,
+  endDate,
+  name,
+  taskStatus,
 }) => {
   const navigate = useNavigate();
 
@@ -34,81 +32,29 @@ const Task: FC<TaskProps> = ({
         <div className={styles.main}>
           <div className={styles.header}>
             <span className={styles.title} onClick={() => navigate(`/tasks/${id}`)}>
-              {title}
+              {name}
             </span>
             <div className={styles.price}>{price}$</div>
           </div>
-          <div className={styles.tag}>#{tag}</div>
+          <div className={styles.tag}>#{tags[+(Math.random() * 5).toFixed()]}</div>
           <div className={styles.info}>
             <div className={styles.participants}>
               <img src={ParticipantIcon} className={styles.icon} />
-              <span className={styles.span}>{participants} participants</span>
+              <span className={styles.span}>{+(Math.random() * 15).toFixed()} participants</span>
             </div>
             <div className={styles.date}>
               <img src={TimeIcon} className={styles.icon} />
-              <span className={styles.span}>
-                {new Date(date ?? new Date()).toLocaleDateString()}
-              </span>
+              <span className={styles.span}>{new Date(endDate).toLocaleDateString()}</span>
             </div>
           </div>
         </div>
 
-        <div className={styles.desc}>
-          <div className={styles.left}>
-            {locationStart && (
-              <div className={styles.cond}>
-                <img src={LocationIcon} className={styles.icon} />
-                <span>Start: {locationStart}</span>
-              </div>
-            )}
-
-            {locationEnd && (
-              <div className={styles.cond}>
-                <img src={LocationIcon} className={styles.icon} />
-                <span>End: {locationEnd}</span>
-              </div>
-            )}
-
-            {location && (
-              <div className={styles.cond}>
-                <img src={LocationIcon} className={styles.icon} />
-                <a
-                  target={'_blank'}
-                  rel="noopener noreferrer"
-                  href={`https://www.google.com/maps/search/${location}`}>
-                  Location: {location}
-                </a>
-              </div>
-            )}
-
-            {timeStart && (
-              <div className={styles.cond}>
-                <img src={TimeIcon} className={styles.icon} />
-                <span>End: {timeStart}</span>
-              </div>
-            )}
-            {timeEnd && (
-              <div className={styles.cond}>
-                <img src={TimeIcon} className={styles.icon} />
-                <span>End: {timeEnd}</span>
-              </div>
-            )}
-
-            {time && (
-              <div className={styles.cond}>
-                <img src={TimeIcon} className={styles.icon} />
-                <span>Time: {time}</span>
-              </div>
-            )}
+        <div className={styles.rightAuthor}>
+          <div className={styles.creationDate}>
+            <span>{new Date(dateCreated).toLocaleDateString()}</span>
+            <img src={CalendarIcon} className={styles.icon} />
           </div>
-
-          <div className={styles.rightAuthor}>
-            <div className={styles.creationDate}>
-              <span>{new Date(creationDate).toLocaleDateString()}</span>
-              <img src={CalendarIcon} className={styles.icon} />
-            </div>
-            <span className={styles.author}>{author}</span>
-          </div>
+          <span className={styles.author}>Michael</span>
         </div>
       </div>
     </div>
