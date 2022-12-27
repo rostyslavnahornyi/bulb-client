@@ -1,0 +1,13 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  padding: 36px 24px;
+	row-gap: 10px;
+}
+
+.textarea {
+	background-color: #282828;
+	outline: none;
+	width: 500px;
+	color: #fff;
+}

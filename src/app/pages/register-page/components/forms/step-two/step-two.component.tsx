@@ -1,9 +1,14 @@
-import React, { useState } from 'react';
+import React, { FC, useState } from 'react';
 import { Button, Input } from '../../../../../components';
 
 import styles from './step-two.module.scss';
 
-const StepTwo = ({ setStep, onClick, onSubmit }) => {
+interface options {
+  onClick: (value: any) => void;
+  setStep: (value: any) => void;
+}
+
+const StepTwo: FC<options> = ({ setStep, onClick }): JSX.Element => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
@@ -17,7 +22,7 @@ const StepTwo = ({ setStep, onClick, onSubmit }) => {
           variant="light"
           placeholder="Enter your email"
           value={email}
-					style={{width: '100%'}}
+          style={{ width: '100%' }}
           type={'email'}
         />
         <Input
@@ -26,7 +31,7 @@ const StepTwo = ({ setStep, onClick, onSubmit }) => {
           variant="light"
           placeholder="* * * * * *"
           type="password"
-					style={{width: '100%', marginBottom: '10px'}}
+          style={{ width: '100%', marginBottom: '10px' }}
           value={password}
           onChange={value => setPassword(value)}
         />

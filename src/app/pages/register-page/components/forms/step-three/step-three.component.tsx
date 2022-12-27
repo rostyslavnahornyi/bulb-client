@@ -1,8 +1,13 @@
-import React, { useState } from 'react';
+import React, { FC, useState } from 'react';
 import { Button, Input } from '../../../../../components';
 import styles from './step-three.module.scss';
 
-const StepThree = ({ onClick, setStep }) => {
+interface options {
+  onClick: (value: any) => void;
+  setStep: (value: any) => void;
+}
+
+const StepThree: FC<options> = ({ onClick, setStep }) => {
   const [first, setFirst] = useState('');
   const [second, setSecond] = useState('');
 
@@ -14,13 +19,13 @@ const StepThree = ({ onClick, setStep }) => {
           label={'First name'}
           variant={'light'}
           value={first}
-					style={{width: '100%', marginBottom: '10px'}}
+          style={{ width: '100%', marginBottom: '10px' }}
           onChange={value => setFirst(value)}
         />
         <Input
           variant="light"
           className={styles.lastName}
-					style={{width: '100%', marginBottom: '10px'}}
+          style={{ width: '100%', marginBottom: '10px' }}
           label={'Last name'}
           value={second}
           onChange={value => setSecond(value)}

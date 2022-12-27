@@ -14,6 +14,9 @@ const RegisterPage = lazy(() => import('../../pages/register-page'));
 const ProfilePage = lazy(() => import('../../pages/profile-page'));
 const MarketplacePage = lazy(() => import('../../pages/marketplace-page'));
 const TasksPage = lazy(() => import('../../pages/tasks-page'));
+const TaskByIdPage = lazy(() => import('../../pages/tasks-page/subpages/id-task-page'));
+const CreateTaskPage = lazy(() => import('../../pages/tasks-page/subpages/create-task-page'));
+const EditTaskPage = lazy(() => import('../../pages/tasks-page/subpages/edit-task-page'));
 
 const AppRouter: FC = () => {
   const isAuth = useAuth();
@@ -87,6 +90,48 @@ const AppRouter: FC = () => {
                 <Suspense
                   fallback={<Preloader className={classNames(styles.center, styles.darkBg)} />}>
                   <TasksPage />
+                </Suspense>
+              }
+            />
+          }
+        />
+
+        <Route
+          path={ROUTES.TASK_BY_ID}
+          element={
+            <ProtectedRoutes
+              element={
+                <Suspense
+                  fallback={<Preloader className={classNames(styles.center, styles.darkBg)} />}>
+                  <TaskByIdPage />
+                </Suspense>
+              }
+            />
+          }
+        />
+
+        <Route
+          path={ROUTES.CREATE_TASK}
+          element={
+            <ProtectedRoutes
+              element={
+                <Suspense
+                  fallback={<Preloader className={classNames(styles.center, styles.darkBg)} />}>
+                  <CreateTaskPage />
+                </Suspense>
+              }
+            />
+          }
+        />
+
+<Route
+          path={ROUTES.CREATE_TASK}
+          element={
+            <ProtectedRoutes
+              element={
+                <Suspense
+                  fallback={<Preloader className={classNames(styles.center, styles.darkBg)} />}>
+                  <CreateTaskPage />
                 </Suspense>
               }
             />

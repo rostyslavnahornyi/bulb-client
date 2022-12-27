@@ -1,0 +1,41 @@
+.wrapper {
+	width: 490px;
+	display: flex;
+	flex-direction: column;
+	padding: 14px 20px 14px;
+	background-color: #282828;
+	border-radius: 20px;
+	border: 1px solid #000;
+}
+
+.title {
+	font-size: 20px;
+	margin-bottom: 20px;
+}
+
+.content {
+	display: flex;
+	flex-direction: column;
+	row-gap: 16px;
+
+	.row {
+		display: flex;
+		justify-content: space-between;
+
+		.customer {
+			display: flex;
+			align-items: center;
+			column-gap: 10px;
+
+			img {
+				width: 30px;
+				height: 30px;
+				border-radius: 15px;
+			}
+		}
+
+		span {
+			font-size: 12px;
+		}
+	}
+}

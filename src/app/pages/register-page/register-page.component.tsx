@@ -1,7 +1,6 @@
 import axios from 'axios';
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router';
-import { useAppContext } from '../../context';
 import { BACKEND_URL } from '../../utils';
 import { Indicator, StepFour, StepOne, StepThree, StepTwo, Title } from './components';
 import styles from './register.module.scss';
@@ -29,7 +28,7 @@ const RegisterPage = () => {
           role: type === 'customer' ? 1 : 0,
         });
         navigate('/login');
-      } catch (error) {
+      } catch(error) {
         console.log(error);
       }
     };
@@ -40,7 +39,7 @@ const RegisterPage = () => {
     console.log(data);
   }, [data]);
 
-  const handleStepClick = value => {
+  const handleStepClick = (value: any) => {
     setStep(value);
   };
 
@@ -48,18 +47,18 @@ const RegisterPage = () => {
     <div className={styles.wrapper}>
       <Title />
       {(step === 0 && (
-        <StepOne setStep={setStep} onClick={type => setData(state => ({ ...state, type }))} />
+        <StepOne setStep={setStep} onClick={(type: any) => setData(state => ({ ...state, type }))} />
       )) ||
         (step === 1 && (
-          <StepTwo setStep={setStep} onClick={data => setData(state => ({ ...state, ...data }))} />
+          <StepTwo setStep={setStep} onClick={(data: any) => setData(state => ({ ...state, ...data }))} />
         )) ||
         (step === 2 && (
           <StepThree
             setStep={setStep}
-            onClick={data => setData(state => ({ ...state, ...data }))}
+            onClick={(data: any) => setData(state => ({ ...state, ...data }))}
           />
         )) ||
-        (step === 3 && <StepFour />) || <StepOne />}
+        (step === 3 && <StepFour />) || <StepOne  />}
       <Indicator value={step} onClick={handleStepClick} />
     </div>
   );

@@ -1,0 +1,41 @@
+.wrapper {
+	width: 490px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 14px 20px 14px;
+	background-color: #282828;
+	border-radius: 20px;
+	border: 1px solid #000;
+}
+
+.title {
+	font-size: 20px;
+	margin-bottom: 20px;
+	align-self: flex-start;
+}
+
+.subtitle {
+	font-size: 10px;
+	color: #787878;
+	margin-bottom: 16px;
+}
+
+.participants {
+	display: flex;
+	padding-bottom: 16px;
+	position: relative;
+
+	.missingParticipants,
+	img {
+		width: 30px;
+		height: 30px;
+		border-radius: 15px;
+	}
+
+	.missingParticipants {
+		text-align: center;
+		font-size: 10px;
+		background-color: #202020;
+	}
+}

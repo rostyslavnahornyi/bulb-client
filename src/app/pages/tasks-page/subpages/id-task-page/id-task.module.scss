@@ -1,0 +1,54 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  padding: 36px 24px;
+}
+
+.backButton {
+	display: flex;
+	align-items: center;
+	font-weight: 500;
+	margin-bottom: 50px;
+	cursor: pointer;
+	column-gap: 10px;
+
+	.icon {
+		width: 15px;
+		height: 15px;
+
+		* {
+			fill: #fff;
+			color: #fff;
+		}
+	}
+}
+
+.titleWrapper {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 24px;
+
+	.title {
+		font-size: 32px;
+	}
+
+	.btn {
+		width: 175px;
+		color: #fff;
+		font-size: 14px;
+		font-weight: 600;
+	}
+}
+
+.content {
+	display: flex;
+	column-gap: 24px;
+	padding-bottom: 154px;
+
+	.rightSide {
+		display: flex;
+		flex-direction: column;
+		row-gap: 24px;
+	}
+}

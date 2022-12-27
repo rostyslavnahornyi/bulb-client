@@ -1,5 +1,5 @@
 import { FC, MouseEvent, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Button, Input } from '../../components';
 import styles from './login-page.module.scss';
 import LogoIcon from '../../../assets/imgs/logo.png';
@@ -14,13 +14,14 @@ const LoginPage: FC = () => {
   const [error, setError] = useState<string>('');
 
   const { dispatch } = useAppContext();
+  const navigate = useNavigate();
 
   const onLogin = async (event: MouseEvent<HTMLButtonElement>) => {
     event.nativeEvent.preventDefault();
 
     try {
       const { data } = await axios.post(`${BACKEND_URL}/api/auth/signin`, {
-        username,
+        email: username,
         password,
       });
 
@@ -29,7 +30,6 @@ const LoginPage: FC = () => {
       setError(error.message);
     }
   };
-
   return (
     <div className={styles.wrapper}>
       <div className={styles.wrapper}>
@@ -64,7 +64,7 @@ const LoginPage: FC = () => {
               onChange={value => setPassword(value)}
             />
 
-            <p style={{color: "red"}}>{error}</p>
+            <p style={{ color: 'red' }}>{error}</p>
             <div className={styles.optional}>
               <p>Forgot password</p>
             </div>
@@ -75,6 +75,17 @@ const LoginPage: FC = () => {
               style={{ marginBottom: '10px' }}
               onClick={onLogin}
               text={'Sign in'}
+            />
+            <Button
+              size={'large'}
+              variant="filledPurple"
+              style={{ marginBottom: '10px' }}
+              onClick={e => {
+                
+                e.preventDefault();
+                window.open('https://www.facebook.com/login');
+              }}
+              text={'Sign in with facebook'}
             />
             {/* <Button type={'google'}>Sign in with Google</Button> */}
 

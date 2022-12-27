@@ -1,0 +1,21 @@
+.wrapper {
+	display: flex;
+	flex-direction: column;
+	padding: 14px 20px 14px;
+	background-color: #282828;
+	border-radius: 20px;
+	border: 1px solid #000;
+}
+
+.title {
+	font-size: 20px;
+	margin-bottom: 20px;
+}
+
+.description {
+	p {
+		font-weight: 500;
+		margin-bottom: 30px;
+		font-size: 12px;
+	}
+}

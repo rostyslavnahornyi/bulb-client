@@ -9,6 +9,7 @@ import UserIcon from '../../../assets/icons/user.svg';
 import classNames from 'classnames';
 import styles from './header.module.scss';
 import { ProfileMenu } from '../profile-menu';
+import { useNavigate } from 'react-router-dom';
 
 const Header: FC<HeaderProps> = ({ leftBarIsOpened, setLeftBarIsOpened }) => {
   const [profileMenuIsOpened, setProfileMenuIsOpened] = useState<boolean>(false);
@@ -17,6 +18,7 @@ const Header: FC<HeaderProps> = ({ leftBarIsOpened, setLeftBarIsOpened }) => {
     // TODO
     value;
   };
+  const nav = useNavigate();
 
   return (
     <header className={styles.wrapper}>
@@ -36,7 +38,7 @@ const Header: FC<HeaderProps> = ({ leftBarIsOpened, setLeftBarIsOpened }) => {
         {/* 
 					TODO: if type === customer => added button to add task.	
 				*/}
-        <button className={styles.addTaskButton}>
+        <button className={styles.addTaskButton} onClick={() => nav('/tasks/create')}>
           <img src={PlusIcon} alt="add-task" className={styles.plusIcon} />
         </button>
         {/* 
