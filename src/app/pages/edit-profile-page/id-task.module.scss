@@ -1,0 +1,46 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  padding: 36px 24px;
+	row-gap: 10px;
+}
+
+.addTaskButton {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	align-self: flex-end;
+	width: 28px;
+	height: 28px;
+	border-radius: 4px;
+	background-color: transparent;
+	transition: 0.3s ease;
+
+	&:hover {
+		background-color: #535353;
+		cursor: pointer;
+	}
+}
+
+.skills {
+	display: flex;
+	flex-direction: column;
+
+	.input {
+		column-gap: 5px;
+		display: flex;
+		margin-bottom: 10px;
+	}
+
+	.list {
+		display: flex;
+		
+		.item {
+			border-radius: 12px;
+			font-size: 12px;
+			padding: 4px 8px;
+			transition: 0.3s;
+		}
+	}
+}
+

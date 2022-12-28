@@ -7,6 +7,7 @@ enum ROUTES {
   TASK_BY_ID = '/tasks/:id',
   CREATE_TASK = '/tasks/create',
   EDIT_TASK = '/tasks/edit/:id',
+  EDIT_PAGE = '/profile/edit',
 }
 
 export { ROUTES };

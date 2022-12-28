@@ -17,6 +17,7 @@ const TasksPage = lazy(() => import('../../pages/tasks-page'));
 const TaskByIdPage = lazy(() => import('../../pages/tasks-page/subpages/id-task-page'));
 const CreateTaskPage = lazy(() => import('../../pages/tasks-page/subpages/create-task-page'));
 const EditTaskPage = lazy(() => import('../../pages/tasks-page/subpages/edit-task-page'));
+const EditProfilePage = lazy(() => import('../../pages/edit-profile-page'));
 
 const AppRouter: FC = () => {
   const isAuth = useAuth();
@@ -118,6 +119,20 @@ const AppRouter: FC = () => {
                 <Suspense
                   fallback={<Preloader className={classNames(styles.center, styles.darkBg)} />}>
                   <CreateTaskPage />
+                </Suspense>
+              }
+            />
+          }
+        />
+
+        <Route
+          path={ROUTES.EDIT_PAGE}
+          element={
+            <ProtectedRoutes
+              element={
+                <Suspense
+                  fallback={<Preloader className={classNames(styles.center, styles.darkBg)} />}>
+                  <EditProfilePage />
                 </Suspense>
               }
             />

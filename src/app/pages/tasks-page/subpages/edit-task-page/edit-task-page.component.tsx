@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { Button, Input } from '../../../../components';
 import { useAppContext } from '../../../../context';
 import { BACKEND_URL } from '../../../../utils';
@@ -29,6 +29,7 @@ const EditTaskPage = () => {
     taskStatus: 0,
   });
 
+  const navigate = useNavigate();
   const { id } = useParams();
 
   useEffect(() => {
@@ -66,7 +67,13 @@ const EditTaskPage = () => {
         type={'string'}
         value={data.endDate}
       />
-      <textarea className={styles.textarea} cols={30} rows={10}></textarea>
+      <textarea
+        className={styles.textarea}
+        value={
+          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
+        }
+        cols={50}
+        rows={20}></textarea>
       <Button
         onClick={() => {
           axios.put(`${BACKEND_URL}/api/task`, data);
@@ -74,6 +81,15 @@ const EditTaskPage = () => {
         size="small"
         variant="outlineGreen"
         text="Edit"
+      />
+      <Button
+        onClick={async () => {
+          await axios.delete(`${BACKEND_URL}/api/task?id=${id}`);
+          navigate('/marketplace')          
+        }}
+        size="small"
+        variant="outlineRed"
+        text="Delete"
       />
     </div>
   );

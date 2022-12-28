@@ -167,31 +167,18 @@ const mocketData = [
 
 const TaskByIdPage = () => {
   const { id } = useParams();
-  const {auth} = useAppContext();
-  const [data, setData] = useState<unknown>();
+  const { auth } = useAppContext();
+  const [data, setData] = useState<{ name: string, price: number, dateCreated: string }>();
   const [isLoading, setIsLoading] = useState<boolean>();
   const navigate = useNavigate();
 
   useEffect(() => {
-    setData(mocketData as unknown);
-
-    // axios.get(`${BACKEND_URL}/api/taks/getbyid?id=`)
-    axios.get(`${BACKEND_URL}/api/task/alltasks`).then((e) => console.log(e.data))
-    // axios.post(`${BACKEND_URL}/api/task/`, {
-    //   id: '123',
-    //   dateCreated: '2022-12-27T14:01:16.221Z',
-    //   dateUpdated: '2022-12-27T14:01:16.221Z',
-    //   name: 'test1',
-    //   creatorId: auth?.userId,
-    //   price: 112,
-    //   endDate: '2022-12-27T14:01:16.221Z',
-    //   dateClosed: '2022-12-27T14:01:16.221Z',
-    //   taskStatus: 0,
-    // }).then(e => console.log(e.data));
+    axios.get(`${BACKEND_URL}/api/task/getbyid?id=${id}`).then(e => setData(e.data));
   }, []);
 
   useEffect(() => {
     setIsLoading(true);
+    console.log(data);
   }, [data]);
 
   return (
@@ -203,13 +190,18 @@ const TaskByIdPage = () => {
         Marketplace
       </div>
       <div className={styles.titleWrapper}>
-        <span className={styles.title}>Driver</span>
-        <Button size='small' variant='filledPurple'  text={auth?.role === Roles.CUSTOMER ? 'Edit' : 'App'} />
+        <span className={styles.title}>{data?.name}</span>
+        <Button
+          size="small"
+          variant="filledPurple"
+          text={auth?.role === Roles.CUSTOMER ? 'Edit' : 'App'}
+          onClick={() => navigate(`/tasks/edit/${id}`)}
+        />
       </div>
       <div className={styles.content}>
         <Description />
         <div className={styles.rightSide}>
-          <Details />
+          <Details {...data} />
           <Participants />
         </div>
       </div>
